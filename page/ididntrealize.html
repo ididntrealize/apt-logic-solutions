@@ -1,0 +1,267 @@
+<link href="css/prism.css" rel="stylesheet" />
+<div class="mainBodyContent">
+
+    <div class="container">
+        <div class="project-description-div">
+            <div class="offset-sm-3 col-sm-9">
+                <a target="_blank" href="http://www.didntrealize.com/">
+                    <h2 class="p-0">DidntRealize.com</h2>
+                </a>
+            </div>
+            <div class="offset-sm-1 col-sm-11 text-center">
+                <img alt="didntrealize.com responsive site preview - across device sizes"
+                    class="img-fluid mx-auto" src="images/screenshot-desktop-idr.png" />
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="project-tools-div">
+                        <h3>Tools used</h3>
+                    </div>
+                </div>
+                <div class="col-sm-9 ">
+                    <p class="project-tools">
+                        <span class="project-tag">&#8226;&nbsp;Javascript</span>
+                        <span class="project-tag">&#8226;&nbsp;Vue.js</span>
+                        <span class="project-tag">&#8226;&nbsp;Firebase.js</span>
+                        <span class="project-tag">&#8226;&nbsp;Cloud&nbsp;Database</span>
+                        <span class="project-tag">&#8226;&nbsp;Cloud&nbsp;Functions</span>
+                        <span class="project-tag">&#8226;&nbsp;Unit&nbsp;Tests</span>
+                        <span class="project-tag">&#8226;&nbsp;Typescript</span>
+                        <span class="project-tag">&#8226;&nbsp;SCSS</span>
+                        <span class="project-tag">&#8226;&nbsp;Github</span>
+                    </p>
+
+
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <h3>My contribution</h3>
+                </div>
+                <div class="col-sm-9 project-supporting-text">
+                    <div class="projectsDiv-panel">
+
+                        <p>Prior to any formal experience with development, I taught myself how to program using this
+                            project. Initially it was simple: the splash page would display a different project of mine
+                            each time a user loaded the page. It would provide unique experience to users coming back,
+                            and allow the limelight of the front page to hit even the least visited corners of my site.
+                            Once this was complete, I focused on increasing interaction by allowing users to take ownership
+                            of what was on the site. The key to making accounts on didntrealize.com valuable turned out
+                            to be a chance to appear on the home page using dynamically loaded user generated projects
+                            and an infinite scroll.
+                        </p>
+
+                        <a class="btn btn-light btn-lg" target="_blank" href="http://www.didntrealize.com/"
+                            role="button">Visit Site &raquo;</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <h3>Highlighted design element</h3>
+                </div>
+                <div class="col-sm-9 project-supporting-text">
+                    <div class="projectsDiv-panel">
+                        <div class="row">
+                            <div class="col-12">
+                                <img alt="Coreyborg designed didntrealize.com Site logo"
+                                    class="img-fluid project-design-img float-left"
+                                    src="http://didntrealize.com/images/logo-sm.png"
+                                    style="max-width:100px;margin-top:0px;margin-bottom:0px;margin-right:35px;" />
+
+                                <div>
+
+                                    <h4 class="text-left" style="padding-top:0;">Site logo</h4>
+
+                                    <p>
+                                        I made this logo using free-hand illustration and Adobe Illustrator. The logo is
+                                        both a '?' and an 'i' which represents the act of questioning if you exist. Or
+                                        rather, if I do. If someone were to ask anything about me, I could at least say, who me?
+
+                                        <p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <h3>Highlighted Code</h3>
+                </div>
+                <div class="col-sm-9 project-supporting-text">
+                    <div class="projectsDiv-panel" style="display:inherit;">
+                        <h4>Infinite Scroll from cloud database</h4>
+                    </div>
+                    <div class="projectsDiv-panel">
+                        <p>
+                            This JS method fires when a user hits the bottom of the page, triggering a query to my cloud
+                            db for the subsequent 10 user generated project documents. Any projects that are returned
+                            are randomized, added to the component’s state, then my vue template displays the new
+                            templates below the existing ones.
+                        </p>
+                    </div>
+
+                    <pre><code class="language-javascript">methods: {
+    async reachedBottom() {
+        if (this.loadMoreProjects && this.lastDocFetched) {
+            this.projectsQuery = this.projectsQuery
+                .limit(10)
+                .startAfter(this.lastDocFetched);
+
+            let newProjects = await this.projectsQuery
+                .get()
+                .then(querySnapshot => {
+                    this.lastDocFetched =
+                        querySnapshot.docs[querySnapshot.docs.length - 1];
+                    //console.log(querySnapshot.docs.map(obj => obj.id));
+                    let projectData = querySnapshot.docs.map(doc =>
+                        doc.data()
+                    );
+                    //map the doc id into this.projects
+                    let documentIds = querySnapshot.docs.map(doc => doc.id);
+                    for (let [i, project] of projectData.entries()) {
+                        project.Id = documentIds[i];
+                    }
+
+                    return projectData;
+                })
+                .catch(e => {
+                    console.log("error fetching new project: ", e);                   
+                });
+            let verifiedProjects = this.shuffle(
+                this.verifiedProjects(newProjects)
+            );
+
+            this.projects = this.projects.concat(verifiedProjects);
+            this.totalProjectRequests += newProjects.length;
+
+            db.collection("metadata")
+                .doc("globals")
+                .get()
+                .then(querySnapshot => {
+                    const data = querySnapshot.data();
+
+                    this.loadMoreProjects =
+                        this.totalProjectRequests < data.projectCount - 1;
+                })
+                .catch(e => {
+                    console.log("error fetching metadata: ", e);                   
+                });
+        } else {
+            //no more projects
+            if (this.loadMoreProjects) {
+                this.loadMoreProjects = false;
+            }
+        }
+    }
+}
+ 
+</code></pre>
+
+
+                </div>
+                <div class="offset-sm-3 col-sm-9 project-supporting-text">
+                    <div class="projectsDiv-panel" style="display:inherit;">
+                        <h4>Cloud function to standardize user data</h4>
+                    </div>
+                    <div class="projectsDiv-panel">
+                        <p>
+                            This piece of code is triggered every time that a user creates a new project - their user
+                            information is then transferred into the newly created project object for ease of retrieval.
+                        </p>
+
+                    </div>
+
+                    <pre><code class="language-javascript">//migrate information about the user from their user document
+//retrieve user document, set User information into project
+try {
+    await db
+        .collection("User")
+        .doc(newProjectObj.UserId)
+        .get()
+        .then((userSnapshot) => {
+            const userData: any = userSnapshot.data();
+
+            const newProjectFields = {
+                DateCreated: date,
+                Handle: userData.Handle,
+                ProfileImage: userData.ImageUrl,
+                BackgroundImage: userData.BackgroundUrl,
+                Name: userData.Name,
+                Verified: false,
+            };
+
+            return projectSnapshot.ref.update(newProjectFields);               
+        });
+} catch (e) {
+    console.log("failed updating user doc: ", e);
+    return false;
+}
+
+</code></pre>
+
+
+                </div>
+                <div class="offset-sm-3 col-sm-9 project-supporting-text">
+                    <div class="projectsDiv-panel" style="display:inherit;">
+                        <h4>Unit test assuring legitimate updates are allowed</h4>
+                    </div>
+                    <div class="projectsDiv-panel">
+                        <p>
+                            This piece of code can be run on command, and it uses a testing db emulator provided by
+                            Firebase. Alongside this unit test, I wrote a number of other tests in order to ensure basic
+                            functionality of my app works properly. Before releasing code updates, I can check that
+                            legitimate requests are allowed to interact with the db, and that illegitimate requests
+                            would be denied.
+                        </p>
+                    </div>
+
+                    <pre><code class="language-typescript">it("can update user document with whitelisted fields", async () => {
+    const admin = getAdminFirestore();
+    const setUpDoc = admin.collection('User').doc(myId);
+    const timestamp = new Date().getTime();
+    await setUpDoc.set({
+        Name: "",
+        Handle: myHandle,
+        ProfileImage: "",
+        BackgroundImage: "",
+        ProfileBio: "",
+        DateCreated: timestamp 
+ });
+
+    const db = getFirestore(myAuth);
+    const myUserDocument = db.collection('User').doc(myId);
+    const legitimateRequest = {
+        Name: "The Grinch",
+        ProfileImage: "image.com/image.jpg",
+        ProfileBio: "Just ya know doing that whatever",
+        BackgroundImage: "background.com/image.png"
+    }
+
+    await firebase.assertSucceeds(
+   myUserDocument.set(legitimateRequest, { merge: true })
+);
+});
+</code></pre>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="scripts/prism.js"></script>

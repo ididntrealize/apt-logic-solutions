@@ -1,0 +1,131 @@
+<link href="css/prism.css" rel="stylesheet" />
+<div class="mainBodyContent border-divider-top">
+
+    <div class="container">
+        <div class="project-description-div">
+            <div class="row">
+                <div class="offset-sm-3 col-sm-9">
+                    <h2>Winning Pictures</h2>
+                </div>
+
+                <div class="offset-sm-1 col-sm-11 text-center">
+                    <img class="project-responsive-img img-fluid mx-auto"
+                                src="images/responsiveFullPreview-wp.png" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="project-tools-div">
+                        <h3>Tools used</h3>
+                    </div>
+                </div>
+                <div class="col-sm-9 ">
+
+                    <p class="project-tools">
+                        <span class="project-tag">&#8226;&nbsp;Wordpress</span>
+                        <span class="project-tag">&#8226;&nbsp;HTML</span>
+                        <span class="project-tag">&#8226;&nbsp;CSS</span>
+                        <span class="project-tag">&#8226;&nbsp;Javascript</span>
+                        <span class="project-tag">&#8226;&nbsp;Bootstrap</span>
+                    </p>
+
+                </div>
+            </div>
+            
+            <div class="row">
+
+                <div class="col-sm-3">
+
+                    <h3>My contribution</h3>
+                </div>
+                <div class="col-sm-9 project-supporting-text">
+                    <div class="projectsDiv-panel">
+
+
+
+                        <p>For this site, I was responsible for content placement, optimization, and interfacing with
+                            multiple hosting companies.
+                            This meant talking with hosting companies, installing wordPress on their servers, and
+                            migrating localhost wordPress sites onto those servers.
+                        </p>
+                        <p>
+                            I originally designed my client's site using bootstrap, HTML, and CSS,
+                            but then, she asked me to transfer her site into Wordpress,
+                            so that she could make edits easily to her content as needed.
+                            I kept the look and feel as close to the original site as possible, and built her a new site
+                            in wordPress.
+                            I also created a guide for her to edit her content, complete with images and a convenient
+                            indexing system for editing specific content.
+                        </p>
+
+                        <p>
+                            <br />
+                            <a class="btn btn-success btn-lg " target="_blank" href="http://winningpictures.tv/"
+                                role="button">Visit Site &raquo;</a>
+
+
+                    </div>
+                </div>
+            </div>
+            <hr />
+
+
+            <div class="row">
+                <div class="col-sm-3">
+
+                    <h3>Highlighted Code</h3>
+                </div>
+                <div class="col-sm-9 project-supporting-text">
+                    <div class="projectsDiv-panel">
+
+                        <h4>Javascript Header Image Swap</h4>
+                        <p>I noticed that it is often necessary to use a different header image on cellphones than on
+                            bigger screens.
+                            I wrote a vanilla javascript solution to this problem, which works within Wordpress.
+                        </p>
+                        <br />
+                    </div>
+                    <pre><code class="language-js">var pageWidth = document.body.clientWidth;
+//console.log(pageWidth + " is the pageWidth");
+
+//check doc width
+if (pageWidth <= 780){
+	
+	//find img within mast head div
+	var imageInMasthead = document.getElementById('masthead').getElementsByTagName('img');
+	
+	//replace src of element with smaller screen logo src
+	//console.log(imageInMasthead[0] + " is the imageinmasthead first img");
+	imageInMasthead[0].src='wp-content/uploads/2016/09/WPBanner.jpg';
+}
+
+</code></pre>
+
+                    <div class="projectsDiv-panel">
+
+
+                        <h4>Custom CSS</h4>
+                        <p>By using a Wordpress plugin, I was able to include some custom cross-browser CSS.
+                            This code is cropping an image into a cirlce.
+                        </p>
+                        <br />
+                    </div>
+                    <!-- Blocks of code -->
+
+
+                    <pre><code class="language-css">.circular-image img {
+    width: 300px;                
+    height: 300px;                
+    -webkit-border-radius: 150px;               
+    -moz-border-radius: 150px;                
+    -ms-border-radius: 150px; 
+    -o-border-radius: 150px;
+    border-radius: 150px;
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="scripts/prism.js"></script>

@@ -1,0 +1,376 @@
+*,
+body {
+    font-family: sans-serif
+}
+
+h1 {
+    font-family: 'Asul', sans-serif;
+    margin-top: 25px;
+    font-size: 105px;
+    text-align: center
+}
+
+h2 {
+    font-family: 'Asul', sans-serif;
+    padding-top: 45px;
+    margin-top: 0px;
+    font-size: 55px
+}
+
+h4 {
+    text-align: center;
+    font-family: 'Asul', sans-serif;
+    font-size: 30px;
+    padding-top: 25px;
+    padding-bottom: 10px
+}
+
+h5 {
+    font-size: 18px
+}
+
+p {
+    font-size: 18px;
+    font-family: 'Noto Sans', sans-serif
+}
+
+a {
+    color: green
+}
+
+a:hover {
+    color: #003300;
+    text-decoration: none
+}
+
+li {
+    padding-bottom: 7px
+}
+
+pre {
+    max-width: 100%
+}
+
+.container {
+    max-width: 1170px;
+    overflow: hidden
+}
+
+.center-text {
+    text-align: center
+}
+
+#aboutDiv h3 {
+    font-weight: bold;
+    text-align: center
+}
+
+.navbar-brand {
+    z-index: 1000;
+    padding: 15px
+}
+
+#socialButtonsDiv {
+    position: fixed;
+    top: 100px;
+    right: 0px;
+    z-index: 10000
+}
+
+#navbar-heading {
+    color: #615050;
+    text-shadow: -3px 3px 2px rgba(173, 154, 111, 1);
+    font-size: 50px;
+    font-family: 'Asul', sans-serif;
+    overflow: visible;
+    z-index: 10000000
+}
+
+@media (max-width:450px) {
+    #navbar-heading {
+        font-size: 36px
+    }
+
+    h2 {
+        font-size: 35px
+    }
+}
+
+.navbar-wrapper .container {
+    overflow: initial
+}
+
+#brand-div img {
+    padding: 5px;
+    height: 55px;
+    width: 45px
+}
+
+.navbar-default {
+    overflow: visible;
+    background: white;
+    margin-bottom: 0px;
+    border: none;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    padding-bottom: 10px
+}
+
+#mainBodyContainer {
+    width: 100%;
+    border-top: 7px solid #4A7523;
+    background: white
+}
+
+.border-divider-top {
+    margin-top: 45px;
+    border-top: 7px solid #4A7523
+}
+
+#mainBodyContainer.on-home-page {
+    border-top: 0
+}
+
+.mainBodyContent {
+    background: url("../images/background-texture-vertical.jpg")
+}
+
+.jumbotron {}
+
+.killPadding {
+    padding: 0px;
+    margin-bottom: 0px
+}
+
+.socialButton {
+    margin: 5px;
+    display: block
+}
+
+.floatImage {
+    float: left
+}
+
+.carousel-outer-div {
+    margin-top: 45px;
+    margin-bottom: 45px
+}
+
+.carousel-sizing-preview {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+#offerDiv {
+    background-image: url("../images/main-offer-background.jpg");
+    background-position: center -200px;
+    background-repeat: no-repeat;
+    background-color: black;
+    padding-bottom: 30px
+}
+
+#offer-text {
+    margin-top: 50px;
+    color: white;
+    font-size: 28px;
+    font-family: 'Noto Sans', sans-serif
+}
+
+#customText {
+    font-style: italic;
+    color: #776A6A;
+    font-size: 16px;
+    font-family: 'Noto Sans', sans-serif;
+    clear: right
+}
+
+@media (max-width:750px) {
+    #offerDiv {
+        padding-bottom: 20px;
+        background-position: center -300px
+    }
+
+    #offerDiv p {
+        font-size: 20px
+    }
+
+    .mainBodyContent {
+        background: url("../images/background-texture-horizontal-subtle.jpg")
+    }
+}
+
+.fa-check-square-o {
+    color: green
+}
+
+#main-text-offer-div {
+    padding: 0px 0px 25px 0px
+}
+
+.check-mark-text {
+    font-size: 20px
+}
+
+.skill-icon {
+    max-width: 200px
+}
+
+#projectsDiv {
+    padding-top: 25px
+}
+
+#navbar {
+    padding-top: 25px
+}
+
+#navbar a {
+    font-size: 24px
+}
+
+.project-more-info-button {
+    margin: 20px 0px;
+    font-size: 20px;
+    border: 2px solid #333
+}
+
+.projectsDiv-panel {
+    background: white;
+    border: 2px solid #efefef;
+    border-radius: 15px;
+    padding: 17px;
+    margin: 15px 0px;
+    height: auto;
+    content: "";
+    display: table;
+    clear: both
+}
+
+.projectsDiv-panel p {
+    margin-top: 10px;
+    margin-bottom: 20px
+}
+
+.projectsDiv-col-6 {
+    margin-bottom: 15px
+}
+
+.project-tag {
+    color: white;
+    background: #567EBB;
+    padding: 3px 10px;
+    display: inline-block;
+    margin: 0px 5px 5px 5px;
+    border-radius: 20px 7px 7px 20px
+}
+
+.siteNameHeading {
+    text-align: center;
+    font-size: 22px;
+    padding-bottom: 15px
+}
+
+.site-thumb {
+    margin-right: 10px;
+    width: 150px;
+    max-width: 35%
+}
+
+#aboutDiv {
+    padding: 15px
+}
+
+.about-p {
+    font-size: 18px;
+    margin: 20px
+}
+
+@media (min-width:750px) {
+    .about-panel {
+        margin-top: 65px
+    }
+
+    #offer-text {
+        font-size: 32px;
+        font-weight: bold
+    }
+}
+
+.projectDescription {}
+
+#form-messages {
+    text-align: center;
+    font-size: 22px;
+    padding: 15px 0px;
+    margin: 10px 0px
+}
+
+footer {
+    margin: 15px
+}
+
+.project-tools-div,
+.project-tools {
+    margin: 20px 0px
+}
+
+.project-responsive-img {
+    margin: 40px auto
+}
+
+.project-supporting-text {
+    padding-top: 10px
+}
+
+.project-design-img {
+    margin-top: 25px;
+    margin-bottom: 25px
+}
+
+.project-description-div h3 {
+    color: grey;
+    font-size: 25px;
+    border-right: 3px solid #19289C
+}
+
+.dev-vs-design-div {
+    margin-bottom: 25px;
+    margin-top: 7px
+}
+
+@media (max-width:768px) {
+    .siteNameHeading {
+        text-align: center
+    }
+
+    .projectDescription {
+        margin: 15px
+    }
+
+    .check-mark-text {
+        position: relative;
+        bottom: 5px
+    }
+
+    .project-description-div h3 {
+        border-right: 0px solid black
+    }
+}
+
+@media (min-width:769px) {
+    .check-mark-text {
+        position: relative;
+        bottom: 5px;
+        text-align: center
+    }
+
+    .project-description-div h3 {
+        text-align: right;
+        padding-right: 10px
+    }
+
+    .project-tools-div h3,
+    .project-tools-div p {
+        text-align: right
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "name": "Apt Logic Solutions",
+    "short_name": "Apt Logic",
+    "icons": [
+        { "src": "assets/favicons/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+        { "src": "assets/favicons/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+    ],
+    "theme_color": "#042C36",
+    "background_color": "#F6F2EC",
+    "display": "standalone",
+    "start_url": "./"
+}
